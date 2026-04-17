@@ -1,17 +1,17 @@
 export const streamerConfig = {
-  name: "Demo Streamer",
-  handle: "demo",
-  bio: "これは fansite-starter テンプレートのデモ表示です。実際の配信者サイトを立ち上げる際は、このファイルを書き換えてください。",
+  name: "Live Stream Demo",
+  handle: "livedemo",
+  bio: "実際のライブ配信を埋め込んだデモ表示。YouTube は Lofi Girl の 24/7 ライブ配信、Twitch は xQc のチャンネルを表示しています。",
   brandColor: "#7c6fbd",
 
   platforms: {
     youtube: {
-      // デモ用: YouTube公式チャンネル。本番は配信者のチャンネルIDに置き換え
-      channelId: "UCBR8-60-B28hp2BmDPdntcQ",
+      // Lofi Girl - 24時間365日ライブ配信
+      channelId: "UCSJ4gkVC6NrvII8umztf0Ow",
     },
     twitch: {
-      // デモ用: Twitch公式チャンネル。本番は配信者のチャンネル名に置き換え
-      channelName: "twitch",
+      // xQc - トップ配信者
+      channelName: "xqc",
     },
   },
 
