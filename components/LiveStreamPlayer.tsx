@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 
 type Props =
-  | { platform: "youtube"; channelId: string }
+  | { platform: "youtube"; channelId: string; liveVideoId?: string }
   | { platform: "twitch"; channelName: string };
 
 export function LiveStreamPlayer(props: Props) {
@@ -27,7 +27,9 @@ export function LiveStreamPlayer(props: Props) {
 
   const src =
     props.platform === "youtube"
-      ? `https://www.youtube.com/embed/live_stream?channel=${props.channelId}`
+      ? props.liveVideoId
+        ? `https://www.youtube.com/embed/${props.liveVideoId}`
+        : `https://www.youtube.com/embed/live_stream?channel=${props.channelId}`
       : `https://player.twitch.tv/?channel=${props.channelName}&parent=${parentDomain}`;
 
   return (

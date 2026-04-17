@@ -8,6 +8,8 @@ export const streamerConfig = {
     youtube: {
       // Lofi Girl - 24時間365日ライブ配信
       channelId: "UCSJ4gkVC6NrvII8umztf0Ow",
+      // 動画ID指定(embed/live_stream?channel=... は不安定なため明示指定)
+      liveVideoId: "N0snMcR6aaA",
     },
     twitch: {
       // xQc - トップ配信者

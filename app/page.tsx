@@ -14,6 +14,7 @@ export default function Home() {
           <LiveStreamPlayer
             platform="youtube"
             channelId={streamerConfig.platforms.youtube.channelId}
+            liveVideoId={streamerConfig.platforms.youtube.liveVideoId}
           />
           <LiveStreamPlayer
             platform="twitch"
