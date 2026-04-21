@@ -1,26 +1,31 @@
 import type { Metadata } from "next";
-import type { CSSProperties } from "react";
 import "./globals.css";
-import { streamerConfig } from "@/config/streamer.config";
+import { STREAMER } from "@/lib/data";
+import { Topbar } from "@/components/Topbar";
+import { Footer } from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: `${streamerConfig.name} - Fan Site`,
-  description: streamerConfig.bio,
+  title: `${STREAMER.name} fan site — MIDNIGHT OPS starter`,
+  description: STREAMER.bio,
 };
-
-const brandStyle = {
-  "--brand": streamerConfig.brandColor,
-} as CSSProperties;
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="ja" className="h-full antialiased">
-      <body className="min-h-full" style={brandStyle}>
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap"
+          rel="stylesheet"
+        />
+      </head>
+      <body className="min-h-full">
+        <Topbar />
         {children}
+        <Footer />
       </body>
     </html>
   );

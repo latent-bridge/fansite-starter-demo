@@ -1,51 +1,204 @@
-import { StreamerProfile } from "@/components/StreamerProfile";
-import { LiveStreamPlayer } from "@/components/LiveStreamPlayer";
-import { LiveChatEmbed } from "@/components/LiveChatEmbed";
-import { DonateButton } from "@/components/DonateButton";
-import { streamerConfig } from "@/config/streamer.config";
+import { STREAMER, TOKENS } from "@/lib/data";
+import { Button } from "@/components/Button";
+import { Countdown } from "@/components/Countdown";
 
-export default function Home() {
-  const { youtube, twitch } = streamerConfig.platforms;
+const panel = {
+  background: TOKENS.panelBg,
+  border: `1px solid ${TOKENS.panelBorder}`,
+  borderRadius: 10,
+};
 
+export default function HomePage() {
   return (
-    <main className="max-w-6xl mx-auto px-6 py-12 space-y-16">
-      <StreamerProfile config={streamerConfig} />
-
-      <section className="space-y-4">
-        <h2 className="text-2xl font-bold">YouTube</h2>
-        <div className="grid md:grid-cols-[1fr_360px] gap-4">
-          <LiveStreamPlayer
-            platform="youtube"
-            channelId={youtube.channelId}
-            liveVideoId={youtube.liveVideoId}
-          />
-          {youtube.liveVideoId && (
-            <LiveChatEmbed platform="youtube" videoId={youtube.liveVideoId} />
-          )}
+    <div className="px-4 sm:px-6 py-4 sm:py-6 max-w-[1200px] mx-auto">
+      {/* HERO */}
+      <div
+        style={{
+          ...panel,
+          padding: "28px",
+          marginBottom: 20,
+          position: "relative",
+          overflow: "hidden",
+          borderColor: TOKENS.mintDim,
+        }}
+      >
+        {/* decorative grid */}
+        <div
+          style={{
+            position: "absolute",
+            inset: 0,
+            opacity: 0.15,
+            backgroundImage:
+              "linear-gradient(rgba(163,255,214,0.2) 1px, transparent 1px), linear-gradient(90deg, rgba(163,255,214,0.2) 1px, transparent 1px)",
+            backgroundSize: "32px 32px",
+            maskImage:
+              "radial-gradient(circle at 80% 20%, black 30%, transparent 70%)",
+            WebkitMaskImage:
+              "radial-gradient(circle at 80% 20%, black 30%, transparent 70%)",
+          }}
+        />
+        {/* moon */}
+        <div
+          className="hidden sm:block"
+          style={{
+            position: "absolute",
+            right: -30,
+            top: -50,
+            width: 260,
+            height: 260,
+            borderRadius: "50%",
+            background:
+              "radial-gradient(circle at 35% 35%, #f6fff9 0%, #d8e6dd 30%, #6f7d76 70%, #1f2621 100%)",
+            boxShadow: `0 0 80px ${TOKENS.mint}30, inset -40px -30px 0 -10px rgba(0,0,0,0.55)`,
+          }}
+        />
+        <div style={{ position: "relative", maxWidth: "60%" }}>
+          <div
+            className="font-mono"
+            style={{
+              fontSize: 10,
+              color: TOKENS.mint,
+              letterSpacing: "0.3em",
+            }}
+          >
+            // BRIEFING — {STREAMER.nameRomaji}
+          </div>
+          <h1
+            className="text-[34px] sm:text-[64px]"
+            style={{
+              margin: "10px 0 4px",
+              lineHeight: 1.0,
+              fontWeight: 900,
+              letterSpacing: "-0.01em",
+            }}
+          >
+            {STREAMER.name} の
+            <br />
+            <span
+              style={{
+                color: TOKENS.mint,
+                textShadow: `0 0 20px ${TOKENS.mint}55`,
+              }}
+            >
+              MIDNIGHT ROOM.
+            </span>
+          </h1>
+          <p
+            style={{
+              color: TOKENS.textMuted,
+              fontSize: 14,
+              maxWidth: 480,
+              marginTop: 12,
+            }}
+          >
+            {STREAMER.bio}
+          </p>
+          <div className="flex gap-2 mt-5">
+            <Button primary href="/stream">
+              LIVE を見る →
+            </Button>
+            <Button href="/member">メンバーになる</Button>
+          </div>
         </div>
-      </section>
+      </div>
 
-      <section className="space-y-4">
-        <h2 className="text-2xl font-bold">Twitch</h2>
-        <div className="grid md:grid-cols-[1fr_360px] gap-4">
-          <LiveStreamPlayer
-            platform="twitch"
-            channelName={twitch.channelName}
-          />
-          <LiveChatEmbed platform="twitch" channelName={twitch.channelName} />
+      {/* STATS */}
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3 mb-5">
+        {(
+          [
+            ["FOLLOWERS", STREAMER.stats.followers],
+            ["SUBS", STREAMER.stats.subs],
+            ["STREAMS", STREAMER.stats.streams],
+            ["YEARS", STREAMER.stats.years],
+          ] as const
+        ).map(([k, v]) => (
+          <div key={k} style={{ ...panel, padding: "14px 14px" }}>
+            <div
+              className="font-mono"
+              style={{
+                fontSize: 9,
+                letterSpacing: "0.2em",
+                color: TOKENS.textFaint,
+              }}
+            >
+              {k}
+            </div>
+            <div
+              className="font-mono"
+              style={{
+                fontSize: 22,
+                fontWeight: 700,
+                marginTop: 4,
+                color: TOKENS.mint,
+              }}
+            >
+              {v}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* NEXT MISSION + GAMES */}
+      <div className="grid grid-cols-1 md:grid-cols-[1.4fr_1fr] gap-3 md:gap-4">
+        <div
+          style={{
+            ...panel,
+            padding: 18,
+            borderColor: TOKENS.mintDim,
+          }}
+        >
+          <div
+            className="font-mono"
+            style={{
+              fontSize: 10,
+              color: TOKENS.mint,
+              letterSpacing: "0.24em",
+            }}
+          >
+            NEXT MISSION
+          </div>
+          <div style={{ fontSize: 22, fontWeight: 700, marginTop: 8 }}>
+            次回配信タイトル
+          </div>
+          <div style={{ color: TOKENS.textMuted, marginTop: 4 }}>
+            次回配信日時 21:00 — 24:00 JST
+          </div>
+          <div className="flex items-center gap-3 mt-3">
+            <Countdown target="21:00" />
+            <Button small>リマインド</Button>
+          </div>
         </div>
-      </section>
-
-      {streamerConfig.donate.enabled && (
-        <section className="space-y-6">
-          <h2 className="text-2xl font-bold">支援する</h2>
-          <DonateButton presets={streamerConfig.donate.presetAmounts} />
-        </section>
-      )}
-
-      <footer className="text-center text-xs text-muted pt-12 border-t border-border">
-        Powered by Fan Site Platform
-      </footer>
-    </main>
+        <div style={{ ...panel, padding: 18 }}>
+          <div
+            className="font-mono"
+            style={{
+              fontSize: 10,
+              color: TOKENS.textFaint,
+              letterSpacing: "0.24em",
+            }}
+          >
+            LOADOUT / GAMES
+          </div>
+          <div className="flex flex-wrap gap-1.5 mt-2.5">
+            {STREAMER.games.map((g) => (
+              <span
+                key={g}
+                className="font-mono"
+                style={{
+                  fontSize: 11,
+                  padding: "6px 9px",
+                  border: "1px solid rgba(255,255,255,0.12)",
+                  borderRadius: 4,
+                  color: "#cad3cf",
+                  letterSpacing: "0.08em",
+                }}
+              >
+                {g}
+              </span>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }
