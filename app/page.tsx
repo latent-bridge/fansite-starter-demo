@@ -13,9 +13,9 @@ export default function HomePage() {
     <div className="px-4 sm:px-6 py-4 sm:py-6 max-w-[1200px] mx-auto">
       {/* HERO */}
       <div
+        className="p-4 sm:p-7"
         style={{
           ...panel,
-          padding: "28px",
           marginBottom: 20,
           position: "relative",
           overflow: "hidden",
@@ -37,22 +37,16 @@ export default function HomePage() {
               "radial-gradient(circle at 80% 20%, black 30%, transparent 70%)",
           }}
         />
-        {/* moon */}
+        {/* moon — visible also on mobile at smaller size */}
         <div
-          className="hidden sm:block"
+          className="absolute rounded-full w-[180px] h-[180px] sm:w-[260px] sm:h-[260px] right-[-40px] top-[-30px] sm:right-[-30px] sm:top-[-50px]"
           style={{
-            position: "absolute",
-            right: -30,
-            top: -50,
-            width: 260,
-            height: 260,
-            borderRadius: "50%",
             background:
               "radial-gradient(circle at 35% 35%, #f6fff9 0%, #d8e6dd 30%, #6f7d76 70%, #1f2621 100%)",
             boxShadow: `0 0 80px ${TOKENS.mint}30, inset -40px -30px 0 -10px rgba(0,0,0,0.55)`,
           }}
         />
-        <div style={{ position: "relative", maxWidth: "60%" }}>
+        <div className="relative max-w-[70%] sm:max-w-[60%]">
           <div
             className="font-mono"
             style={{
@@ -93,7 +87,7 @@ export default function HomePage() {
           >
             {STREAMER.bio}
           </p>
-          <div className="flex gap-2 mt-5">
+          <div className="flex flex-wrap gap-2 mt-5">
             <Button primary href="/stream">
               LIVE を見る →
             </Button>
