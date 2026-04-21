@@ -91,6 +91,27 @@ export const CHAT_SAMPLES = [
   { user: "tsubasa", msg: "wwwwww", c: "#ffe486" },
 ] as const;
 
+export const SUPPORT = {
+  tagline: "いつもありがとう。気が向いたときだけで大丈夫です。",
+  presets: [
+    { amount: 300, label: "こーひー", emoji: "☕", blurb: "配信前の一杯に" },
+    { amount: 500, label: "おやつ", emoji: "🍫", blurb: "深夜配信のお供" },
+    { amount: 1000, label: "ごはん", emoji: "🍜", blurb: "ラーメン1杯分" },
+    { amount: 3000, label: "ガチ支援", emoji: "🎯", blurb: "新しい機材の足しに" },
+    { amount: 5000, label: "ドン", emoji: "⭐", blurb: "ありがとうございます" },
+  ],
+  recent: [
+    { name: "サンプル1", amount: 500, msg: "今日の配信楽しかった！" },
+    { name: "サンプル2", amount: 1000, msg: "いつも応援してます" },
+    { name: "匿名", amount: 300, msg: "元気もらってます" },
+    { name: "サンプル3", amount: 3000, msg: "頑張ってください" },
+    { name: "サンプル4", amount: 500, msg: "おつかれさまです" },
+    { name: "サンプル5", amount: 1000, msg: "" },
+    { name: "匿名", amount: 300, msg: "" },
+    { name: "サンプル6", amount: 2000, msg: "誕生日おめでとうございます" },
+  ],
+} as const;
+
 export const NAV = [
   { key: "home", label: "HOME", path: "/" },
   { key: "stream", label: "STREAM", path: "/stream" },
@@ -99,6 +120,7 @@ export const NAV = [
   { key: "goods", label: "GOODS", path: "/goods" },
   { key: "fanart", label: "FAN ART", path: "/fanart" },
   { key: "member", label: "MEMBER", path: "/member" },
+  { key: "support", label: "TIP", path: "/support" },
 ] as const;
 
 export const TOKENS = {
