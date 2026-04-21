@@ -49,11 +49,11 @@ export const ARCHIVES = [
 ] as const;
 
 export const GOODS = [
-  { id: "g1", name: "ruruポンコツロゴ Tee", price: 3800, kind: "APPAREL", color: "#0b0b0f", accent: "#a3ffd6" },
+  { id: "g1", name: "オリジナルロゴ Tee", price: 3800, kind: "APPAREL", color: "#0b0b0f", accent: "#a3ffd6" },
   { id: "g2", name: "マウスパッド / XL", price: 4600, kind: "GEAR", color: "#15151c", accent: "#ff7ab8" },
   { id: "g3", name: "アクリルスタンド", price: 2200, kind: "FIGURE", color: "#1a1423", accent: "#c4a3ff" },
   { id: "g4", name: "ステッカーセット", price: 980, kind: "PAPER", color: "#1b1b22", accent: "#ffe486" },
-  { id: "g5", name: "月夜のフーディー", price: 7400, kind: "APPAREL", color: "#0d1018", accent: "#a3ffd6" },
+  { id: "g5", name: "フーディー", price: 7400, kind: "APPAREL", color: "#0d1018", accent: "#a3ffd6" },
   { id: "g6", name: "缶バッジ 12種ランダム", price: 440, kind: "PAPER", color: "#1b1b22", accent: "#ff7ab8" },
 ] as const;
 
@@ -77,16 +77,16 @@ export const MEMBERSHIPS = [
 export const CHAT_SAMPLES = [
   { user: "コーヒー党", msg: "エイム鬼", c: "#ff7ab8" },
   { user: "sho_1234", msg: "ナイス！！", c: "#a3ffd6" },
-  { user: "kuro", msg: "ruruちゃん上手すぎｗ", c: "#c4a3ff" },
+  { user: "kuro", msg: "上手すぎｗ", c: "#c4a3ff" },
   { user: "アッシュ", msg: "そのキャラ強いの？", c: "#ffe486" },
   { user: "tsuki_mod", msg: "[MOD] リスナーさん落ち着いて〜", c: "#ff9966" },
   { user: "rin", msg: "きょうも配信ありがとう〜", c: "#a3ffd6" },
   { user: "ネコ丸", msg: "わたし今日から登録しました！", c: "#ff7ab8" },
   { user: "shiro", msg: "ｗｗｗｗｗ", c: "#c4a3ff" },
-  { user: "mochi", msg: "ruru先輩〜〜！", c: "#ffe486" },
+  { user: "mochi", msg: "先輩〜〜！", c: "#ffe486" },
   { user: "青いペンギン", msg: "そこ逃げて！！！", c: "#a3ffd6" },
   { user: "hoshi", msg: "nice shot", c: "#ff7ab8" },
-  { user: "ruru_mod", msg: "[MOD] 配信URL貼るのはやめてね", c: "#ff9966" },
+  { user: "mod_1", msg: "[MOD] 配信URL貼るのはやめてね", c: "#ff9966" },
   { user: "ame", msg: "ナイスクラッチ", c: "#c4a3ff" },
   { user: "tsubasa", msg: "wwwwww", c: "#ffe486" },
 ] as const;
